@@ -1,16 +1,20 @@
 // $primary-color: #5a5ab8;
-$primary-color: #5a5ab8;
+// $primary-color: #5a5ab8;
+// $primary-color: #3e0c3a;
+$primary-color: #008;
+$secondary-color: #ddb40e;
 
 header {
-  background-image: url(../images/homepage.jpg);
+  background-image: url(../images/front-end.png);
   height: 100vh;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding-top: 10px;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
 
   .overlay {
     position: absolute;
@@ -18,11 +22,12 @@ header {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #000;
-    opacity: 0.8;
+    background-color: $primary-color;
+    opacity: 0.7;
     z-index: 0;
   }
   .header-data {
+    margin-top: 80px;
     text-align: center;
     h2 {
       position: relative;
@@ -30,48 +35,140 @@ header {
       color: #fff;
       font-size: 120px;
       margin-left: 20px;
-    margin-bottom: 15px;
+      margin-bottom: 15px;
       span {
-        color: #ddb40e;
+        color: $secondary-color;
       }
-
     }
-    p{
+    p {
       color: #fff;
       z-index: 22;
       position: relative;
     }
   }
 }
+
+@media (max-width: 576px) {
+  .header-data {
+    margin-top: 50px;
+    h2 {
+      font-size: 50px !important;
+      margin-bottom: 30px !important;
+    }
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .header-data {
+    margin-top: 50px;
+    h2 {
+      font-size: 70px !important;
+    }
+  }
+}
+
 .navbar {
-  background-color: #510057;
+  background-color: $primary-color;
   .navbar-brand {
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     margin-right: 60px;
-  }
-  .navbar-brand {
-    img {
-      width: 80px;
-      height: 50px;
-      z-index: 2;
-      position: relative;
-      margin-right: 20px;
-      // align-self: center;
-    }
+    color: $secondary-color;
+    letter-spacing: 4px;
   }
   .navbar-collapse {
     .navbar-nav {
       .nav-item {
         .nav-link {
-          font-size: 18px;
+          font-size: 16px;
           font-weight: bold;
-          margin-left: 15px;
+          margin-left: 7px;
           color: #fff;
+          letter-spacing: 1px;
+        }
+        .active {
+          color: $secondary-color;
         }
       }
     }
   }
+}
+
+.navbar .nav-item:hover .dropdown-menu {
+  background-color: $primary-color;
+}
+
+.navbar .nav-item .dropdown-menu .dropdown-item {
+  color: #fff;
+}
+
+.navbar .nav-item .dropdown-menu .dropdown-item:hover {
+  background-color: $primary-color;
+}
+
+@media (min-width: 992px) {
+  .navbar .dropdown-menu-end {
+    // right: 0;
+    left: 0;
+  }
+  .navbar .nav-item .dropdown-menu {
+    display: block;
+    opacity: 0;
+    // visibility: hidden;
+    transition: 0.3s;
+    margin-top: 0;
+  }
+  .navbar .nav-item:hover .nav-link {
+    color: #fff;
+  }
+  .navbar .dropdown-menu.fade-down {
+    top: 80%;
+    transform: rotateX(-75deg);
+    transform-origin: 0% 0%;
+  }
+  .navbar .dropdown-menu.fade-up {
+    top: 180%;
+  }
+  .navbar .nav-item:hover .dropdown-menu {
+    transition: 0.3s;
+    opacity: 1;
+    // visibility: visible;
+    top: 100%;
+    transform: rotateX(0deg);
+    background-color: $primary-color;
+  }
+
+  .navbar .nav-item .dropdown-menu .dropdown-item {
+    color: #fff;
+    padding: 10px 10px;
+  }
+
+  .navbar .nav-item .dropdown-menu .dropdown-item:hover {
+    background-color: $primary-color;
+    opacity: 0.8;
+  }
+
+  .dropdown-toggle::after {
+    display: none;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+  }
+}
+
+.navbar-changebg-color {
+  background-color: $primary-color !important;
+  padding: 10px 0 !important;
+  transition: all 0.5s ease-in-out;
+}
+
+.navbar-changecolor-item:not(.active) {
+  color: #fff !important;
+  transition: all 0.5s ease-in-out;
 }
 
 .services {
@@ -167,6 +264,12 @@ header {
   padding-bottom: 40px;
   .course-item {
     margin-top: 20px;
+    h3 {
+      font-size: 20px;
+    }
+    img {
+      // width: 80%;
+    }
     button {
       background-color: $primary-color;
       color: white;
@@ -190,21 +293,27 @@ header {
 
 .acadimic-programming {
   .acadimic-programming-hedaing {
-    font-size: 60px;
+    font-size: 45px;
+    margin-bottom: 30px;
     font-weight: bold;
     text-transform: capitalize;
   }
   .acadimic-programming-step {
     margin: 60px 0;
+    .age {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
     h3 {
       font-weight: bold;
-      font-size: 50px;
+      font-size: 30px;
       color: $primary-color;
     }
     p {
       color: #918f8f;
       font-size: 20px;
-      margin-bottom: 40px;
+      margin-bottom: 15px;
     }
     button {
       background-color: $primary-color;
@@ -212,12 +321,61 @@ header {
       font-weight: bold;
     }
   }
+
+  .acadimic-programming-step-flex {
+    display: flex;
+    align-items: center;
+    div {
+      margin: 0 5px;
+    }
+  }
+
+  .acadimic-programming-step-flex-1 {
+    p {
+      padding: 0 3px;
+    }
+  }
 }
 
 footer {
-  padding: 15px 0;
+  padding: 50px 0;
   background-color: $primary-color;
   color: white;
   font-weight: bold;
-  font-size: 18px;
+}
+
+footer h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: $secondary-color;
+}
+
+footer ul li {
+  margin-bottom: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  &:hover {
+    color: $secondary-color;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+// About Page
+
+.about-us {
+  padding: 40px 0;
+}
+
+.about-us h2 {
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: $primary-color;
+}
+
+.about-us-info h3 {
+  font-size: 40px;
+  font-weight: bold;
+  color: $primary-color;
 }
